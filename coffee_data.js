@@ -1,12 +1,3 @@
-// Prompt 1:
-// Clean the coffee_data file:
-
-// Checklist:
-// a. All prices should be numbers.
-// b. All items should be strings.
-// c. Objects and properties should have commas seperating them.
-// d. Connect the coffee_data.js file to the index.js file.
-
 const coffeeMenu = [
   {
       name: "cappuccino",
@@ -54,5 +45,31 @@ const coffeeMenu = [
       seasonal: true,
   }
 ]
+
+console.log("All Drinks on the Menu:");
+coffeeMenu.forEach(item => {
+    console.log(item.name);
+});
+
+console.log("Drinks that cost $5 and Under:");
+const cheapDrinks = coffeeMenu.filter(item => item.price <= 5);
+cheapDrinks.forEach(item => {
+    console.log(item.name);
+})
+
+console.log("Drinks Priced at Even Numbers:");
+const evenPricedDrinks = coffeeMenu.filter(item => item.price % 2 === 0);
+evenPricedDrinks.forEach(item => {
+    console.log(item.name);
+})
+
+const total = coffeeMenu.reduce((sum, item) => sum + item.price, 0);
+console.log(`Total cost for one of every drink: $${total}`);
+
+console.log("Seasonal Drinks:");
+const seasonalDrinks = coffeeMenu.filter(item => item.seasonal);
+seasonalDrinks.forEach(item => {
+    console.log(item.name);
+})
 
 module.exports = coffeeMenu;
